@@ -1,14 +1,14 @@
-# Drupal Password Hasher for Django
+# Drupal Authentication Backend for Django
 
-This package provides a password hasher that can be used to facilitate migrating users from a Drupal-based website into a Django-based web application.
+This package provides an authentication backend that can be used to facilitate migrating users from a Drupal-based website into a Django-based web application.
 
 
 ## Quick start
 
-Install `django_drupal_password_hasher`:
+Install `django_drupal_auth_backend`:
 
 ```bash
-$ pip install django_drupal_password_hasher
+$ pip install django_drupal_auth_backend
 ```
 
 In your settings module you will need to add the new hasher to :
@@ -21,7 +21,7 @@ PASSWORD_HASHERS = (
     'django.contrib.auth.hashers.SHA1PasswordHasher',
     'django.contrib.auth.hashers.MD5PasswordHasher',
     'django.contrib.auth.hashers.CryptPasswordHasher',
-    'django_drupal_password_hasher.DrupalPasswordHasher',
+    'django_drupal_auth_backend.hashers.DrupalPasswordHasher',
 )
 ```
 

@@ -51,8 +51,8 @@ class DrupalPasswordHasherTest(unittest.TestCase):
         self.hasher.get_iteration_count.assert_called_once_with('ITERATIONS')
         self.hasher.base_64_encode.assert_called_once_with('SHA512DIGEST')
 
-    @mock.patch('django_drupal_password_hasher.hasher.mask_hash')
-    @mock.patch('django_drupal_password_hasher.hasher._')
+    @mock.patch('django_drupal_auth_backend.hasher.mask_hash')
+    @mock.patch('django_drupal_auth_backend.hasher._')
     def test_safe_summary_a(self, mock_gettext, mock_mask_hash):
         def return_same(value):
             return value

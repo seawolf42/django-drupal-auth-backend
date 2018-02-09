@@ -18,16 +18,16 @@ install_dependencies = (
 
 
 setup(
-    name='django-drupal-password-hasher',
+    name='django-drupal-auth-backend',
     version='1.0.0',
     packages=find_packages(),
     include_package_data=True,
     license='GNU General Public License v3 or later (GPLv3+)',
-    description='Password hasher for Django that works with legacy Drupal 7 accounts.',
+    description='Authentication backend for Django that works with legacy Drupal 7 accounts.',
     long_description=README,
-    url='https://github.com/seawolf42/django-drupal-password-hasher',
+    url='https://github.com/seawolf42/django-drupal-auth-backend',
     author='jeffrey k eliasen',
-    author_email='jeff+django-drupal-password-hasher@jke.net',
+    author_email='jeff+django-drupal-auth-backend@jke.net',
     classifiers=[
         'Environment :: Web Environment',
         'Intended Audience :: Developers',
