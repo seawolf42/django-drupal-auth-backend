@@ -19,7 +19,7 @@ install_dependencies = (
 
 setup(
     name='django-drupal-auth-backend',
-    version='1.0.0',
+    version='1.0.1',
     packages=find_packages(),
     include_package_data=True,
     license='GNU General Public License v3 or later (GPLv3+)',
@@ -30,14 +30,21 @@ setup(
     author_email='jeff+django-drupal-auth-backend@jke.net',
     classifiers=[
         'Environment :: Web Environment',
+        'Framework :: Django',
+        'Framework :: Django :: 1.8',
+        'Framework :: Django :: 1.9',
+        'Framework :: Django :: 1.10',
+        'Framework :: Django :: 1.11',
+        'Framework :: Django :: 2.0',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)',
+        'Natural Language :: English',
         'Operating System :: OS Independent',
-        'Programming Language :: Python',
+        'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.6',
         'Topic :: Security',
     ],
-    keywords='',
+    keywords='django-drupal-auth-backend',
     install_requires=install_dependencies,
     tests_require=install_dependencies + ('mock',),
 )
