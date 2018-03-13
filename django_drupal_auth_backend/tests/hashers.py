@@ -2,7 +2,7 @@ import unittest
 
 from unittest import mock
 
-from .. import hasher
+from .. import hashers
 
 
 test_base_64_encodes = (
@@ -28,7 +28,7 @@ test_base_64_encodes = (
 class DrupalPasswordHasherTest(unittest.TestCase):
 
     def setUp(self):
-        self.hasher = hasher.DrupalPasswordHasher()
+        self.hasher = hashers.DrupalPasswordHasher()
 
     def test_hash_calls_get_iteration_count(self):
         self.hasher.get_iteration_count = mock.MagicMock()
@@ -51,8 +51,8 @@ class DrupalPasswordHasherTest(unittest.TestCase):
         self.hasher.get_iteration_count.assert_called_once_with('ITERATIONS')
         self.hasher.base_64_encode.assert_called_once_with('SHA512DIGEST')
 
-    @mock.patch('django_drupal_auth_backend.hasher.mask_hash')
-    @mock.patch('django_drupal_auth_backend.hasher._')
+    @mock.patch('django_drupal_auth_backend.hashers.mask_hash')
+    @mock.patch('django_drupal_auth_backend.hashers._')
     def test_safe_summary_a(self, mock_gettext, mock_mask_hash):
         def return_same(value):
             return value
