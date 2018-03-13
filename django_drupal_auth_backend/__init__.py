@@ -1,1 +1,1 @@
-from .hasher import *  # noqa
+from .hashers import *  # noqa
