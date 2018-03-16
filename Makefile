@@ -4,12 +4,22 @@
 
 
 #
-# environment
+# commands for artifact cleanup
 #
 
-ifndef VIRTUAL_ENV
-$(error VIRTUAL_ENV is not set)
-endif
+PHONY: clean.build
+clean.build:
+	rm -rf build/
+	rm -rf dist/
+	rm -rf *.egg-info
+
+PHONY: clean.pyc
+clean.pyc:
+	find . -name '*.pyc' -delete
+	find . -name '*.pyo' -delete
+
+PHONY: clean
+clean: clean.build clean.pyc
 
 
 #
@@ -18,11 +28,11 @@ endif
 
 PHONY: test.flake8
 test.flake8:
-	flake8 setup.py django-drupal-password-hasher
+	flake8 .
 
 PHONY: test.unittests
 test.unittests:
-	PYTHONPATH=${PYTHONPATH} python setup.py test
+	python setup.py test
 
 PHONY: test
 test: test.flake8 test.unittests
@@ -32,14 +42,15 @@ test: test.flake8 test.unittests
 # commands for packaging and deploying to pypi
 #
 
-PHONY: readme
-readme:
+PHONY: docs
+docs:
 	pandoc -o README.rst README.md
 
 PHONY: package
-package: readme
+package: clean docs
 	python setup.py sdist
 
-PHONY: submit
-submit: readme
-	python setup.py sdist upload -r pypi
+PHONY: release
+release: package
+	python setup.py sdist upload
+	python setup.py bdist_wheel upload

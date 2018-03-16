@@ -1,10 +1,16 @@
 import hashlib
+import sys
 
 from collections import OrderedDict
 
 from django.contrib.auth.hashers import BasePasswordHasher
 from django.contrib.auth.hashers import mask_hash
 from django.utils.translation import gettext_noop as _
+
+
+if sys.version_info[0] < 3:
+    # python 2
+    raise NotImplementedError('this package does not work with python2')
 
 
 ITOA64 = './0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'

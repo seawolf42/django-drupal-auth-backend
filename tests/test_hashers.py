@@ -1,8 +1,13 @@
+import sys
 import unittest
 
-from unittest import mock
-
 from django_drupal_auth_backend import hashers
+
+if sys.version_info[0] < 3:
+    # python 2
+    raise NotImplementedError('this package does not work with python2')
+
+from unittest import mock  # noqa F402
 
 
 test_base_64_encodes = (

@@ -1,3 +1,8 @@
 [flake8]
 
+exclude = \
+    .git \
+    .eggs
+    *.egg-info \
+
 max-line-length = 120
