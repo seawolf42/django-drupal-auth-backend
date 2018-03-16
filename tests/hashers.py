@@ -2,7 +2,7 @@ import unittest
 
 from unittest import mock
 
-from .. import hashers
+from django_drupal_auth_backend import hashers
 
 
 test_base_64_encodes = (
