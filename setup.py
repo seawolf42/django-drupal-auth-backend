@@ -19,7 +19,7 @@ install_dependencies = (
 
 setup(
     name='django-drupal-auth-backend',
-    version='1.0.2',
+    version='1.0.3',
     packages=find_packages(),
     include_package_data=True,
     license='GNU General Public License v3 or later (GPLv3+)',
